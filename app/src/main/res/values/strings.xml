@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Restful</string>
+    <string name="facebook_app_id">329250287445994</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+</resources>
