@@ -1,5 +1,6 @@
 package com.example.ravi.restful.Layouts;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -52,6 +54,24 @@ public class MainActivity extends AppCompatActivity {
         recList.setLayoutManager(llm);
         inserUser();
         setSupportActionBar(toolbar);
+        recList.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, recList ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+
+                           if(position==0) {
+                               startActivity(new Intent(getApplicationContext(),ClickActvity.class));
+
+                           }
+
+
+
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
         refreshLayout.post(new Runnable() {
             @Override
             public void run() {
